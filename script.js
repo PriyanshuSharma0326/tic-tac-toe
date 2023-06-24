@@ -9,9 +9,9 @@ const box8 = document.getElementById('box-8');
 const box9 = document.getElementById('box-9');
 
 const matchUpdate = document.getElementById('match-update');
-// const resetButton = document.getElementById('reset-button');
+const resetButton = document.getElementById('reset-button');
 
-const boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let playerBoxes;
 let computerBoxes;
 const choices = ['circle', 'cross'];
@@ -52,6 +52,7 @@ const init = () => {
     computerInputs = [];
     playerInputs = [];
     pattern = [];
+    boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     winnerFlag = false;
 
@@ -65,9 +66,6 @@ const init = () => {
     }
     else {
         matchUpdate.innerText = 'Computer starts!';
-    }
-
-    if(turn === 'computer') {
         computerAdds();
     }
 }
@@ -118,6 +116,7 @@ const addElement = (boxNumber, boxElement, turn) => {
     const image = document.createElement('img');
     image.src = `./media/${turn === 'player' ? `${playerChoice}` : `${computerChoice}`}.png`;
     image.alt = '';
+    console.log(image.src);
 
     if(boxElement.innerHTML === '') {
         boxElement.appendChild(image);
@@ -128,8 +127,6 @@ const addElement = (boxNumber, boxElement, turn) => {
         pattern: `${turn === 'player' ? `${playerChoice}` : `${computerChoice}`}`,
         position: boxNumber
     });
-    
-    console.log(pattern);
 
     if(turn === 'player') {
         playerBoxes.push(boxNumber);
@@ -139,20 +136,20 @@ const addElement = (boxNumber, boxElement, turn) => {
     }
 
     checkPattern();
+    updateBoxArray(boxNumber);
 }
 
 const computerAdds = () => {
     let randomBoxNumber = boxes[Math.floor(Math.random()*(boxes.length))];
     let randomBox = document.getElementById(`box-${randomBoxNumber}`);
     addElement(randomBoxNumber, randomBox, turn);
-    updateBoxArray(randomBoxNumber);
     turn = 'player';
 }
 
 const buttontask = (num, ele) => {
     if(boxes.includes(num) && !winnerFlag) {
         addElement(num, ele, turn);
-        updateBoxArray(num);
+
         if(boxes.length && !winnerFlag) {
             turn = 'computer';
             setTimeout(computerAdds, 1000);
@@ -196,8 +193,8 @@ box9.addEventListener('click', () => {
     buttontask(9, box9);
 });
 
-// resetButton.addEventListener('click', () => {
-//     init();
-// });
+resetButton.addEventListener('click', () => {
+    init();
+});
 
 init();

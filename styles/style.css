@@ -41,8 +41,6 @@ body {
 }
 
 .match-update {
-    /* position: absolute;
-    top: 4rem; */
     color: var(--chalk-white);
 }
 
@@ -95,4 +93,19 @@ main {
 .credits > a {
     font-weight: 500;
     color: var(--chalk-white);
+}
+
+@media screen and (max-width: 426px) {
+    .match-update {
+        font-size: 1.65rem;
+    }
+
+    main {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .credits {
+        font-size: 0.9rem;
+    }
 }
