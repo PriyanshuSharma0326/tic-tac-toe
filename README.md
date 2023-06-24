@@ -7,7 +7,7 @@ This repository contains a simple Tic Tac Toe game implemented using HTML, CSS, 
 ## Game Features
 
 - User-friendly interface with a responsive design.
-- Real-time gameplay with immediate feedback on each move.
+- Real-time gameplay.
 - Alternate turns between players (User and Computer).
 - Automatic detection of winning combinations and declaration of the winner.
 - Option to restart or reset the game and play again.
