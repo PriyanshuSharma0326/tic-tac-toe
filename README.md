@@ -1,6 +1,6 @@
 # Tic Tac Toe Game
 
-![Design preview for Tic Tac Toe Game](./design/desktop-design.jpg)
+![Design preview for Tic Tac Toe Game](./design/desktop-design.png)
 
 This repository contains a simple Tic Tac Toe game implemented using HTML, CSS, and JavaScript. The game allows users to compete against the computer on a 3x3 grid.
 
