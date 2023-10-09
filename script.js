@@ -116,7 +116,6 @@ const addElement = (boxNumber, boxElement, turn) => {
     const image = document.createElement('img');
     image.src = `./media/${turn === 'player' ? `${playerChoice}` : `${computerChoice}`}.png`;
     image.alt = '';
-    console.log(image.src);
 
     if(boxElement.innerHTML === '') {
         boxElement.appendChild(image);
